@@ -13,6 +13,7 @@ class Twemoji extends StatelessWidget {
       this.height,
       this.width,
       this.fit,
+      this.color = null,
       this.twemojiFormat = TwemojiFormat.svg,
       this.fitzpatrickTypes = FitzpatrickType.values})
       : super(key: key);
@@ -37,6 +38,9 @@ class Twemoji extends StatelessWidget {
   /// If an emoji uses a fitzpatrick type that is not in this list, it will
   /// fall back to it's default, yellow, variation.
   final List<FitzpatrickType> fitzpatrickTypes;
+
+  /// Color of the emoji
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +76,7 @@ class Twemoji extends StatelessWidget {
           width: width,
           fit: fit ?? BoxFit.contain,
           package: 'twemoji_v2',
+          colorFilter: color ?? ColorFilter.mode(color, BlendMode.srcIn),
         );
       case TwemojiFormat.networkSvg:
         return SvgPicture.network(
@@ -79,6 +84,7 @@ class Twemoji extends StatelessWidget {
           height: height,
           width: width,
           fit: fit ?? BoxFit.contain,
+          colorFilter: color ?? ColorFilter.mode(color, BlendMode.srcIn),
         );
     }
   }
