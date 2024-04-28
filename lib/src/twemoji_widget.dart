@@ -76,7 +76,7 @@ class Twemoji extends StatelessWidget {
           width: width,
           fit: fit ?? BoxFit.contain,
           package: 'twemoji_v2',
-          colorFilter: color ?? ColorFilter.mode(color, BlendMode.srcIn),
+          colorFilter: color ?? ColorFilter.mode(color!, BlendMode.srcIn),
         );
       case TwemojiFormat.networkSvg:
         return SvgPicture.network(
@@ -84,7 +84,7 @@ class Twemoji extends StatelessWidget {
           height: height,
           width: width,
           fit: fit ?? BoxFit.contain,
-          colorFilter: color ?? ColorFilter.mode(color, BlendMode.srcIn),
+          colorFilter: color ?? ColorFilter.mode(color!, BlendMode.srcIn),
         );
     }
   }
