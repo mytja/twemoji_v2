@@ -53,7 +53,7 @@ class TwemojiTextSpan extends TextSpan {
                   emoji: emojiStr,
                   twemojiFormat: twemojiFormat,
                   fitzpatrickTypes: fitzpatrickTypes,
-                  color: _style.color,
+                  color: _style?.color,
                   height: emojiStyle.fontSize,
                   width: emojiStyle.fontSize,
                 )),

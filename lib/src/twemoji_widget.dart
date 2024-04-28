@@ -13,7 +13,7 @@ class Twemoji extends StatelessWidget {
       this.height,
       this.width,
       this.fit,
-      this.color = null,
+      this.color,
       this.twemojiFormat = TwemojiFormat.svg,
       this.fitzpatrickTypes = FitzpatrickType.values})
       : super(key: key);
@@ -76,7 +76,8 @@ class Twemoji extends StatelessWidget {
           width: width,
           fit: fit ?? BoxFit.contain,
           package: 'twemoji_v2',
-          colorFilter: color ?? ColorFilter.mode(color!, BlendMode.srcIn),
+          colorFilter:
+              color == null ? null : ColorFilter.mode(color!, BlendMode.srcIn),
         );
       case TwemojiFormat.networkSvg:
         return SvgPicture.network(
@@ -84,7 +85,8 @@ class Twemoji extends StatelessWidget {
           height: height,
           width: width,
           fit: fit ?? BoxFit.contain,
-          colorFilter: color ?? ColorFilter.mode(color!, BlendMode.srcIn),
+          colorFilter:
+              color == null ? null : ColorFilter.mode(color!, BlendMode.srcIn),
         );
     }
   }
